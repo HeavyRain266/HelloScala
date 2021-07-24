@@ -1,60 +1,59 @@
 package io.github.HeavyRain266.helloScala
 
-import org.lwjgl._
 import org.lwjgl.glfw._
-import org.lwjgl.opengl._
 import org.lwjgl.glfw.GLFW._
+import org.lwjgl.opengl._
 import org.lwjgl.opengl.GL11._
 import org.lwjgl.system.MemoryUtil._
 
 class HelloScala {
-  private var window: Long = 0
+  private object Window {
+    var instance: Long = 0
+    val title: String = "Hello, Scala!"
+    val width: Int = 800
+    val height: Int = 600
+  }
 
   def start(): Unit = {
-    System.out.println("Hello LWJGL " + Version.getVersion + "!")
-
     try {
       init()
       loop()
 
-      glfwDestroyWindow(window)
+      glfwDestroyWindow(Window.instance)
     } finally {
       glfwTerminate()
     }
   }
 
   private def init(): Unit = {
-    glfwSetErrorCallback(GLFWErrorCallback.createPrint(System.err))
+    if (!glfwInit()) {
+      throw new IllegalThreadStateException("Failed to initialize GLFW!")
+    }
 
-    if (!glfwInit())
-      throw new IllegalThreadStateException("Unable to initialize GLFW")
+    glfwSetErrorCallback(GLFWErrorCallback.createPrint(System.err))
+    glfwSetKeyCallback(Window.instance, new KeyboardHandler())
 
     glfwDefaultWindowHints()
     glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE)
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE)
 
-    val WIDTH: Int = 800
-    val HEIGHT: Int = 600
-
-    window = glfwCreateWindow(WIDTH, HEIGHT, "Hello World!", NULL, NULL)
-    if (window == NULL)
-      throw new RuntimeException("Failed to create the GLFW window!")
-
-    val kb = new KeyboardHandler()
-    glfwSetKeyCallback(window, kb)
+    Window.instance = glfwCreateWindow(Window.width, Window.height, Window.title, NULL, NULL)
+    if (Window.instance == NULL) {
+      throw new RuntimeException("Failed to create new GLFW window instance!")
+    }
 
     val videoMode: GLFWVidMode = glfwGetVideoMode(glfwGetPrimaryMonitor())
 
     if (videoMode != null) {
       glfwSetWindowPos(
-        window,
-        (videoMode.width() - WIDTH) / 2,
-        (videoMode.height() - HEIGHT) / 2
+        Window.instance,
+        (videoMode.width() - Window.width) / 2,
+        (videoMode.height() - Window.height) / 2
       )
     }
-    glfwMakeContextCurrent(window)
+    glfwMakeContextCurrent(Window.instance)
     glfwSwapInterval(1)
-    glfwShowWindow(window)
+    glfwShowWindow(Window.instance)
   }
 
   private def loop(): Unit = {
@@ -62,9 +61,9 @@ class HelloScala {
 
     glClearColor(1.0f, 0.0f, 0.0f, 0.0f)
 
-    while (!glfwWindowShouldClose(window)) {
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) // Clear framebuffer.
-      glfwSwapBuffers(window)
+    while (!glfwWindowShouldClose(Window.instance)) {
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+      glfwSwapBuffers(Window.instance)
       glfwPollEvents()
     }
   }

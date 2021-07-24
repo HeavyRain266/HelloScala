@@ -10,8 +10,7 @@ class KeyboardHandler() extends GLFWKeyCallback {
                        scancode: Int,
                        action: Int,
                        mods: Int
-                     ): Unit = {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE)
-      glfwSetWindowShouldClose(window, true )
+                     ): Unit = (key, action) match {
+    case (GLFW_KEY_ESCAPE, GLFW_RELEASE) => glfwSetWindowShouldClose(window, true)
   }
 }
