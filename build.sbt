@@ -6,7 +6,7 @@ version := "0.2-SNAPSHOT"
 
 scalaVersion := "2.13.6"
 
-idePackagePrefix := Some("io.github.HeavyRain266.helloScala")
+idePackagePrefix := Some("io.github.heavyrain266.helloScala")
 
 resolvers += Resolver.sonatypeRepo("snapshots")
 
