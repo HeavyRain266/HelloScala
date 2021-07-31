@@ -7,7 +7,7 @@ import org.lwjgl.opengl.GL11._
 import org.lwjgl.system.MemoryUtil._
 
 class HelloScala {
-  private object Window {
+  private object Win {
     var instance: Long = 0
     val title: String = "Hello, Scala!"
     val width: Int = 800
@@ -19,7 +19,7 @@ class HelloScala {
       init()
       loop()
 
-      glfwDestroyWindow(Window.instance)
+      glfwDestroyWindow(Win.instance)
     } finally {
       glfwTerminate()
     }
@@ -31,14 +31,14 @@ class HelloScala {
     }
 
     glfwSetErrorCallback(GLFWErrorCallback.createPrint(System.err))
-    glfwSetKeyCallback(Window.instance, new KeyboardHandler())
+    glfwSetKeyCallback(Win.instance, new KeyboardHandler())
 
     glfwDefaultWindowHints()
     glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE)
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE)
 
-    Window.instance = glfwCreateWindow(Window.width, Window.height, Window.title, NULL, NULL)
-    if (Window.instance == NULL) {
+    Win.instance = glfwCreateWindow(Win.width, Win.height, Win.title, NULL, NULL)
+    if (Win.instance == NULL) {
       throw new RuntimeException("Init: Failed to create new GLFW window instance!")
     }
 
@@ -46,14 +46,14 @@ class HelloScala {
 
     if (videoMode != null) {
       glfwSetWindowPos(
-        Window.instance,
-        (videoMode.width() - Window.width) / 2,
-        (videoMode.height() - Window.height) / 2
+        Win.instance,
+        (videoMode.width() - Win.width) / 2,
+        (videoMode.height() - Win.height) / 2
       )
     }
-    glfwMakeContextCurrent(Window.instance)
+    glfwMakeContextCurrent(Win.instance)
     glfwSwapInterval(1)
-    glfwShowWindow(Window.instance)
+    glfwShowWindow(Win.instance)
   }
 
   private def loop(): Unit = {
@@ -61,9 +61,9 @@ class HelloScala {
 
     glClearColor(1.0f, 0.0f, 0.0f, 0.0f)
 
-    while (!glfwWindowShouldClose(Window.instance)) {
+    while (!glfwWindowShouldClose(Win.instance)) {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-      glfwSwapBuffers(Window.instance)
+      glfwSwapBuffers(Win.instance)
       glfwPollEvents()
     }
   }
