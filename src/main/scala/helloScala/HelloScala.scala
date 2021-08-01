@@ -9,9 +9,9 @@ import org.lwjgl.system.MemoryUtil._
 class HelloScala {
   private object Win {
     var instance: Long = 0
-    val title: String = "Hello, Scala!"
-    val width: Int = 800
-    val height: Int = 600
+    val title: String  = "Hello, Scala!"
+    val width: Int     = 800
+    val height: Int    = 600
   }
 
   def start(): Unit = {
@@ -27,7 +27,9 @@ class HelloScala {
 
   private def init(): Unit = {
     if (!glfwInit()) {
-      throw new IllegalThreadStateException("Init: Failed to initialize GLFW!")
+      throw new IllegalThreadStateException(
+        "Failed to initialize GLFW!"
+      )
     }
 
     glfwSetErrorCallback(GLFWErrorCallback.createPrint(System.err))
@@ -37,9 +39,12 @@ class HelloScala {
     glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE)
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE)
 
-    Win.instance = glfwCreateWindow(Win.width, Win.height, Win.title, NULL, NULL)
+    Win.instance =
+      glfwCreateWindow(Win.width, Win.height, Win.title, NULL, NULL)
     if (Win.instance == NULL) {
-      throw new RuntimeException("Init: Failed to create new GLFW window instance!")
+      throw new RuntimeException(
+        "Failed to create new GLFW window instance!"
+      )
     }
 
     val videoMode: GLFWVidMode = glfwGetVideoMode(glfwGetPrimaryMonitor())
