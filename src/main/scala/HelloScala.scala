@@ -1,4 +1,4 @@
-package io.github.heavyrain266.helloScala
+package pw.nidavellir.HelloScala
 
 import org.lwjgl.glfw._
 import org.lwjgl.glfw.GLFW._
