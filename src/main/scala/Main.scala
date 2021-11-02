@@ -1,4 +1,4 @@
-package io.github.heavyrain266.helloScala
+package pw.nidavellir.HelloScala
 
 object Main {
   def main(args: Array[String]): Unit = {
