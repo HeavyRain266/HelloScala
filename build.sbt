@@ -14,10 +14,10 @@ lazy val os = Option(System.getProperty("os.name", ""))
 
 lazy val root = (project in file("."))
   .settings(
-    name := "helloScala",
+    name := "HelloScala",
     version := "0.2-SNAPSHOT",
     scalaVersion := "2.13.6",
-    idePackagePrefix := Some("io.github.heavyrain266.helloScala"),
+    idePackagePrefix := Some("pw.nidavellir.HelloScala"),
     resolvers += Resolver.sonatypeRepo("snapshots"),
     libraryDependencies ++= Seq(
       lwjglGroup % lwjglArtifact            % lwjglVersion,
@@ -25,9 +25,9 @@ lazy val root = (project in file("."))
       lwjglGroup % s"$lwjglArtifact-glfw"   % lwjglVersion,
       lwjglGroup % s"$lwjglArtifact-assimp" % lwjglVersion,
       lwjglGroup % s"$lwjglArtifact-opengl" % lwjglVersion,
-      lwjglGroup % lwjglArtifact % lwjglVersion classifier s"natives-$os",
-      lwjglGroup % s"$lwjglArtifact-stb" % lwjglVersion classifier s"natives-$os",
-      lwjglGroup % s"$lwjglArtifact-glfw" % lwjglVersion classifier s"natives-$os",
+      lwjglGroup % lwjglArtifact            % lwjglVersion classifier s"natives-$os",
+      lwjglGroup % s"$lwjglArtifact-stb"    % lwjglVersion classifier s"natives-$os",
+      lwjglGroup % s"$lwjglArtifact-glfw"   % lwjglVersion classifier s"natives-$os",
       lwjglGroup % s"$lwjglArtifact-assimp" % lwjglVersion classifier s"natives-$os",
       lwjglGroup % s"$lwjglArtifact-opengl" % lwjglVersion classifier s"natives-$os"
     ),
