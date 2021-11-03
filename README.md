@@ -24,5 +24,5 @@ cd hello-scala
 sbt assembly
 
 # Run program from jar
-scala -jar target/
+scala -jar target/scala-2.13/helloscala.jar
 ```
