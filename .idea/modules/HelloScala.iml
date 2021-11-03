@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="root [file:/C:/Users/Ignacy/HelloScala/]" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
+    <output url="file://$MODULE_DIR$/../../target/scala-2.13/classes" />
+    <output-test url="file://$MODULE_DIR$/../../target/scala-2.13/test-classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../..">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/scala" isTestSource="false" packagePrefix="pw.nidavellir.HelloScala" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/scala" isTestSource="true" packagePrefix="pw.nidavellir.HelloScala" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.bsp" />
+      <excludeFolder url="file://$MODULE_DIR$/../../lwjgl" />
+      <excludeFolder url="file://$MODULE_DIR$/../../lwjgl/3.2.3-build-13" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl-assimp:3.2.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl-assimp:3.2.3:natives-windows:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl-glfw:3.2.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl-glfw:3.2.3:natives-windows:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl-opengl:3.2.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl-opengl:3.2.3:natives-windows:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl-stb:3.2.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl-stb:3.2.3:natives-windows:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl:3.2.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.lwjgl:lwjgl:3.2.3:natives-windows:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.7:jar" level="project" />
+  </component>
+</module>

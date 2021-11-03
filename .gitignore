@@ -1,9 +1,8 @@
+lwjgl/
+lwjgl/3.2.3-build-13/
 .bsp/
 .bloop/
-.metals/
-.vscode/
 target/
 project/.bloop/
 project/project/
 project/target/
-

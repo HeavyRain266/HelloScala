@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <profile name="sbt 1" modules="hello=scala" />
-    <profile name="sbt 2" modules="hello-scala,helloScala">
+    <profile name="sbt 2" modules="hello-scala">
       <option name="deprecationWarnings" value="true" />
       <parameters>
         <parameter value="encoding" />
         <parameter value="UTF-8" />
+        <parameter value="-target:jvm-1.8" />
+      </parameters>
+    </profile>
+    <profile name="sbt 3" modules="HelloScala,helloScala">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-encoding" />
+        <parameter value="UTF-8" />
+        <parameter value="-Xfatal-warnings" />
+        <parameter value="-Ywarn-dead-code" />
         <parameter value="-target:jvm-1.8" />
       </parameters>
     </profile>

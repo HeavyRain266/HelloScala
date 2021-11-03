@@ -16,9 +16,10 @@ lazy val root = (project in file("."))
   .settings(
     name := "HelloScala",
     version := "0.2-SNAPSHOT",
-    scalaVersion := "2.13.6",
+    scalaVersion := "2.13.7",
     idePackagePrefix := Some("pw.nidavellir.HelloScala"),
     resolvers += Resolver.sonatypeRepo("snapshots"),
+    assembly / assemblyJarName := "helloscala.jar",
     libraryDependencies ++= Seq(
       lwjglGroup % lwjglArtifact            % lwjglVersion,
       lwjglGroup % s"$lwjglArtifact-stb"    % lwjglVersion,
@@ -34,8 +35,7 @@ lazy val root = (project in file("."))
     scalacOptions ++= Seq(
       "-feature",
       "-deprecation",
-      "-encoding",
-      "UTF-8",
+      "-encoding", "UTF-8",
       "-Xfatal-warnings",
       "-Ywarn-dead-code",
       "-target:jvm-1.8"
