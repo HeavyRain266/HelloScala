@@ -6,16 +6,16 @@ lazy val lwjglVersion  = "3.2.3"
 
 lazy val os = Option(System.getProperty("os.name", ""))
   .map(_.substring(0, 3).toLowerCase) match {
-  case Some("win") => "windows"
-  case Some("mac") => "macos"
-  case Some("lin") => "linux"
-  case _           => throw new Exception("Unknown platform!")
+    case Some("win") => "windows"
+    case Some("mac") => "macos"
+    case Some("lin") => "linux"
+    case _ => throw new Exception("Usupported platform!")
 }
 
 lazy val root = (project in file("."))
   .settings(
     name := "HelloScala",
-    version := "0.2-SNAPSHOT",
+    version := "0.3-SNAPSHOT",
     scalaVersion := "2.13.7",
     idePackagePrefix := Some("pw.nidavellir.HelloScala"),
     resolvers += Resolver.sonatypeRepo("snapshots"),
