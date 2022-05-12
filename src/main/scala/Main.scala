@@ -38,8 +38,7 @@ class HelloScala {
     glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE)
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE)
 
-    Window.instance =
-      glfwCreateWindow(Window.width, Window.height, Window.title, NULL, NULL)
+    Window.instance =glfwCreateWindow(Window.width, Window.height, Window.title, NULL, NULL)
     if (Window.instance == NULL) {
       throw new RuntimeException(
         "Failed to create new GLFW window instance!"
